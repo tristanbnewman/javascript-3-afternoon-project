@@ -36,11 +36,17 @@
 ////////// PROBLEM 1 //////////
 
 /*
-  Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
+  Inside the function showValues, write a for in loop that concatenates each of the 
+  property values and returns the concatenated string.
 */
 
 function showValues( obj ) {
   //Code Here
+  let statement = ""
+  for(let prop in obj){
+    statement += obj[prop]
+  }
+  return statement
 }
 
 
@@ -54,7 +60,15 @@ function showValues( obj ) {
 */
 
 //Code Here
+function greaterThan10(obj){
+  for(let prop in obj){
+    if(obj[prop] > 10){
+      obj[prop] = 0
+    }
+  }
 
+  return obj
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -66,7 +80,12 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function double (obj){
+  for(let prop in obj){
+    obj[prop] *= 2
+  }
+  return obj
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -80,7 +99,17 @@ function showValues( obj ) {
 */
 
 //Code Here
+function secrets (obj){
+  let str = ""
+  
+  for(let prop in obj){
+    if(prop.slice(0,2) === 'sh'){
+      str += obj[prop]
+    }
+  }
 
+  return str
+}
 
 
 /* 
@@ -111,7 +140,10 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function removePassword (obj){
+  delete obj["password"]
+  return obj
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -126,11 +158,16 @@ var deleteTheBigNumbers = {
 // Do not edit the code above.
 
 /*
-  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
+  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose 
+  value is greater than 100.
 */
 
 //Code Here
-
+for(let prop in deleteTheBigNumbers){
+  if(deleteTheBigNumbers[prop] > 100){
+    delete deleteTheBigNumbers[prop]
+  }
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -143,14 +180,23 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
+function startsWithK(obj){
+  for(let prop in obj){
+    if(prop.slice(0,1) === 'k'){
+      delete obj[prop]
+    }
+  }
 
+  return obj
+}
 
 
 ////////// PROBLEM 8 //////////
 
 /*
   Write a function called hiddenTreasure that takes in an object.
-  Write a for in loop that loops over this object. Each property will have a sentence as it's value.
+  Write a for in loop that loops over this object. 
+  Each property will have a sentence as it's value.
   If the property value does not contain the word 'treasure', delete the property.
   Return the updated object.
 
@@ -158,5 +204,12 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+function hiddenTreasure (obj){
+  for(let prop in obj){
+    if(!obj[prop].includes('treasure')){
+      delete obj[prop]
+    }
+  }
+  return obj
+}
 
